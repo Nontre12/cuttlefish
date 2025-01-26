@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(cuttlefish VERSION 0.1.0 LANGUAGES C CXX)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(BUILD_SHARED_LIBS OFF)
+
+set(SOURCE_FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/cuttlefish.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/logger.cpp
+)
+
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
+
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
