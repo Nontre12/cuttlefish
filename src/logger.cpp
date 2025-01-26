@@ -7,7 +7,7 @@ namespace cuttlefish {
 LogLevel Logger::threshold = LogLevel::DEBUG;
 std::mutex Logger::mutex;
 
-void Logger::log(const LogLevel &level, const std::string &message) {
+void Logger::log(const LogLevel &level, const std::string_view &message) {
   if (level < Logger::threshold) {
     return;
   }
@@ -30,15 +30,15 @@ void Logger::log(const LogLevel &level, const std::string &message) {
   }
 }
 
-void Logger::debug(const std::string &message) {
+void Logger::debug(const std::string_view &message) {
   Logger::log(LogLevel::DEBUG, message);
 }
 
-void Logger::info(const std::string &message) {
+void Logger::info(const std::string_view &message) {
   Logger::log(LogLevel::INFO, message);
 }
 
-void Logger::error(const std::string &message) {
+void Logger::error(const std::string_view &message) {
   Logger::log(LogLevel::ERROR, message);
 }
 

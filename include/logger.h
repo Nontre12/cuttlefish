@@ -15,15 +15,15 @@ private:
 
   Logger() = default;
 
-  static void log(const LogLevel &level, const std::string &message);
+  static void log(const LogLevel &level, const std::string_view &message);
 
 public:
   Logger(const Logger &) = delete;
   Logger &operator=(const Logger &) = delete;
 
-  static void debug(const std::string &message);
-  static void info(const std::string &message);
-  static void error(const std::string &message);
+  static void debug(const std::string_view &message);
+  static void info(const std::string_view &message);
+  static void error(const std::string_view &message);
 };
 
 } // namespace cuttlefish
